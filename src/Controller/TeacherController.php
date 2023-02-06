@@ -9,14 +9,22 @@ use Symfony\Component\HttpFoundation\Request;
 class TeacherController extends AbstractController
 {
     #[Route('/teacher', name: 'app_teacher')]
-    public function index(Request $request): Response
+    public function index(): Response
+    {
+        return new Response(
+            '<html><body>' . 'teacher index' . '</body></html>'
+        );
+    }
+
+    #[Route('/teacher/{name}', name: 'app_teacher2')]
+    public function showTeacher($name): Response
     {
         return $this->render('teacher/index.html.twig', [
-            'name' => $request->query->get('name'),
-            'goToIndexResult' => $this->goToIndex(),
+            'name' => $name,
+            // 'goToIndexResult' => $this->goToIndex(),
         ]);
     }
-    #[Route('/student', name: 'app_student')]
+    #[Route('/teacherR', name: 'app_teacherR')]
 
     public function goToIndex()
     {
