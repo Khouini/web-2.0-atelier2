@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Hello TeacherController!
+{% endblock %}
+
+{% block body %}
+  <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font:
+    18px/1.5 sans-serif; } .example-wrapper code { background: #F5F5F5; padding:
+    2px 6px; }
+  </style>
+
+  <div class="example-wrapper">
+    <h1>
+      Hello {{ name }}! ✅
+      <button id="go-to-index-btn">Aller à l'index</button>
+    </h1>
+  </div>
+{% endblock %}
+{% block javascripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function() { $('#go-to-index-btn').click(function() {
+    $.ajax({ url: "{{ path('app_student') }}", type: 'POST', success:
+    function(result) { console.log(result); } }); }); });
+  </script>
+{% endblock %}

@@ -1,0 +1,3 @@
+# index:
+#   path: /student
+#   controller: App\Controller\StudentController::index
